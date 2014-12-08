@@ -1,0 +1,74 @@
+id: gallery
+label: 'Gallery Black'
+name: 'Gallery Black'
+version: 1.0
+elements:
+  blog_static_files:
+    component: ~
+    data:
+      - images
+    importer: blog_static_files
+  template_set:
+    component: ~
+    data:
+      base_path: templates
+      label: 'exported_template set'
+      templates:
+        archive:
+          entry_listing:
+            label: カテゴリ別記事リスト
+            mappings:
+              category:
+                archive_type: Category
+        index:
+          feed_recent:
+            label: 最新記事のフィード
+            outfile: atom.xml
+            rebuild_me: 1
+          styles:
+            label: スタイルシート
+            outfile: common/css/styles.css
+            rebuild_me: 1
+          template_11967:
+            label: 'js imagesloaded.pkgd.min.js'
+            outfile: common/js/imagesloaded.pkgd.min.js
+            rebuild_me: 1
+          template_11968:
+            label: 'js jquery.contenthover.min.js'
+            outfile: common/js/jquery.contenthover.min.js
+            rebuild_me: 1
+          template_11969:
+            label: 'js jquery.infinitescroll.min.js'
+            outfile: common/js/jquery.infinitescroll.min.js
+            rebuild_me: 1
+          template_11970:
+            label: 'js masonry.pkgd.min.js'
+            outfile: common/js/masonry.pkgd.min.js
+            rebuild_me: 1
+          template_11974:
+            label: 'js jquery.sharrre.min.js'
+            outfile: common/js/jquery.sharrre.min.js
+            rebuild_me: 1
+          template_11978:
+            label: メインページ
+            outfile: index.html
+            rebuild_me: 1
+        individual:
+          entry:
+            label: 記事
+            mappings:
+              individual:
+                archive_type: Individual
+        module:
+          template_11975:
+            label: header
+          template_11976:
+            label: footer
+          template_11977:
+            label: config
+        page:
+          page:
+            label: ウェブページ
+            mappings:
+              page:
+                archive_type: Page
