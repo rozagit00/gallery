@@ -1,0 +1,18 @@
+<header role="navigation" class="group">
+  <h1><a href="<$mt:BlogRelativeURL$>"><$mt:BlogName$></a></h1>
+  <nav role="navigation" class="category-navi">
+    <ul>
+      <mt:TopLevelCategories>
+      <mt:SetVarBlock name="thiscategory"><$mt:CategoryLabel$></mt:SetVarBlock>
+      <li<mt:If name="category" eq="$thiscategory"> class="active"</mt:If>><a href="<$mt:CategoryArchiveLink$>"><$mt:CategoryLabel$></a></li>
+      </mt:TopLevelCategories>
+    </ul>
+  </nav>
+  <nav role="navigation" class="page-navi">
+    <ul>
+      <mt:Pages>
+      <li><a href="<$mt:PagePermalink$>"><$mt:PageTitle$></a></li>
+      </mt:Pages>
+    </ul>
+  </nav>
+</header>

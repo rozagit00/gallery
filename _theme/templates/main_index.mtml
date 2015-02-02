@@ -2,9 +2,9 @@
 <html lang="ja" itemscope itemtype="http://schema.org/WebPage">
 <head>
 <meta charset="UTF-8">
-<title><$mt:CategoryLabel encode_html="1"$> | <$mt:BlogName encode_html="1"$></title>
-<meta name="description" content="<$mt:BlogName encode_html="1"$> 「<$mt:CategoryLabel encode_html="1"$>」カテゴリの一覧ページです。">
-<meta name="keywords" content="<$mt:GetVar name="metakeywords" encode_html="1"$>,<$mt:CategoryLabel encode_html="1"$>">
+<title><$mt:BlogName encode_html="1"$></title>
+<meta name="description" content="<$mt:BlogDescription encode_html="1" remove_html="1"$>">
+<meta name="keywords" content="<$mt:GetVar name="metakeywords" encode_html="1"$>">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="shortcut icon" href="<$mt:BlogURL encode_html="1"$>images/favicon.ico">
 <link rel="start" href="<$mt:BlogURL encode_html="1"$>">
@@ -13,14 +13,14 @@
 <!-- Open Graph Protocol -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="<$mt:BlogLanguage setvar="blog_lang"$><mt:If name="blog_lang" eq="ja">ja_JP<mt:Else><$mt:Var name="blog_lang"$></mt:If>">
-<meta property="og:title" content="<$mt:CategoryLabel encode_html="1"$> | <$mt:BlogName encode_html="1"$>">
-<meta property="og:url" content="<$mt:CategoryArchiveLink encode_html="1"$>">
-<meta property="og:description" content="<$mt:BlogName encode_html="1"$> 「<$mt:CategoryLabel encode_html="1"$>」カテゴリの一覧ページです。">
+<meta property="og:title" content="<$mt:BlogName encode_html="1"$>">
+<meta property="og:url" content="<$mt:BlogURL encode_html="1"$>">
+<meta property="og:description" content="<$mt:BlogDescription remove_html="1" encede_html="1"$>">
 <meta property="og:site_name" content="<$mt:BlogName encode_html="1"$>">
 <meta property="og:image" content="<$mt:BlogURL encode_html="1"$>images/ogimage.png">
 <!-- Microdata -->
-<meta itemprop="description" content="<$mt:BlogName encode_html="1"$> 「<$mt:CategoryLabel encode_html="1"$>」カテゴリの一覧ページです。">
-<link itemprop="url" href="<$mt:CategoryArchiveLink encode_html="1"$>">
+<meta itemprop="description" content="<$mt:BlogDescription remove_html="1" encede_html="1"$>">
+<link itemprop="url" href="<$mt:BlogURL encode_html="1"$>">
 <link itemprop="image" href="<$mt:BlogURL encode_html="1"$>images/ogimage.png">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="<$mt:BlogRelativeURL$>common/css/styles.css">
@@ -30,15 +30,13 @@
 <![endif]-->
 </head>
 
-<mt:SetVarBlock name="category"><$mt:CategoryLabel$></mt:SetVarBlock>
-
 <body>
 
 <$mt:Include module="header"$>
 
 <div id="container" class="group">
 
-<mt:Entries>
+<mt:Entries lastn="100">
   <article class="item" data-url="<$mt:EntryPermalink$>">
     <mt:EntryAssets type="image" sort_order="ascend" limit="1"><img src="<$mt:AssetThumbnailURL width="240"$>" alt="<$mt:EntryTitle$>"></mt:EntryAssets>
     <div class="contenthover">
@@ -69,7 +67,7 @@ imagesLoaded(container, function() {
     gutter: 25,
     itemSelector: '.item',
     isFitWidth: true,
-    transitionDuration: 0,
+    transitionDuration: 0
   });
 
   $('.item').each(function(i) {
@@ -89,27 +87,13 @@ imagesLoaded(container, function() {
   });
 });
 
-jQuery(function($) {
-  var lastIsSticky = undefined,
-    $document = $(document),
-    $header = $("header");
-
-  $(window).on("scroll", function() {
-    var scroll = $document.scrollTop(),
-      isSticky = scroll > 80;
-
-    if (lastIsSticky === isSticky) {
-      return;
-    }
-    lastIsSticky = isSticky;
-
-    if (isSticky) {
-      $header.addClass("sticky")
-    }
-    else {
-      $header.removeClass("sticky")
-    }
-  });
+$(window).scroll(function() {
+  var scl = $(document).scrollTop();
+  if (scl > 80) {
+    $("header").addClass("sticky")
+  } else {
+    $("header").removeClass("sticky")
+  }
 });
 
 $('.item').click(function() {

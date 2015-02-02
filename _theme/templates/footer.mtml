@@ -1,0 +1,18 @@
+<footer>
+  <ul class="social-links">
+    <mt:If name="twitter"><li><a href="<$mt:GetVar name="twitter"$>"><i class="fa fa-twitter"></i></a></li></mt:If>
+    <mt:If name="facebook"><li><a href="<$mt:GetVar name="facebook"$>"><i class="fa fa-facebook"></i></a></li></mt:If>
+    <mt:If name="google"><li><a href="<$mt:GetVar name="google"$>"><i class="fa fa-google-plus"></i></a></li></mt:If>
+  </ul>
+  <ul>
+  <mt:TopLevelCategories>
+    <li><a href="<$mt:CategoryArchiveLink$>"><$mt:CategoryLabel$></a></li>
+  </mt:TopLevelCategories>
+  </ul>
+  <ul>
+  <mt:Pages>
+    <li><a href="<$mt:PagePermalink$>"><$mt:PageTitle$></a></li>
+  </mt:Pages>
+  </ul>
+  <p id="copyright">&copy; <$mt:BlogName$></p>
+</footer>
