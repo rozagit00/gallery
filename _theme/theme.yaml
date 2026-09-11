@@ -16,21 +16,21 @@ elements:
       templates:
         archive:
           entry_listing:
-            label: カテゴリ別記事リスト
+            label: カテゴリ別記事リスト！
             mappings:
               category:
                 archive_type: Category
         index:
           feed_recent:
-            label: 最新記事のフィード
+            label: 最新記事のフィード！
             outfile: atom.xml
             rebuild_me: 1
           styles:
-            label: スタイルシート
+            label: スタイルシート！
             outfile: common/css/styles.css
             rebuild_me: 1
           main_index:
-            label: メインページ
+            label: メインページ！
             outfile: index.html
             rebuild_me: 1
         individual:
